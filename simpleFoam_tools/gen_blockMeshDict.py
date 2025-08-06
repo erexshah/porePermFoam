@@ -2,9 +2,10 @@
 import os
 from textwrap import dedent
 
-def generate_blockMeshDict(shape: tuple, file_path: str, boundary: str="symmetryPlane") -> None:
+def generate_blockMeshDict(shape: tuple, mesh_resolution: tuple, file_path: str, boundary: str="symmetryPlane") -> None:
     """Generate blockMeshDict for a given geometry and cell size."""
     nx, ny, nz = shape
+    dx, dy, dz = mesh_resolution
     if boundary.lower() == "symmetryplane":
         bc_type = "symmetryPlane"
     elif boundary.lower() == "wall":
@@ -36,13 +37,13 @@ def generate_blockMeshDict(shape: tuple, file_path: str, boundary: str="symmetry
         ly0 0;
         lz0 0;
 
-        lx1 {nx - 1};
-        ly1 {ny - 1};
-        lz1 {nz - 1};
+        lx1 {nx-1};
+        ly1 {ny-1};
+        lz1 {nz-1};
 
-        nx {nx};
-        ny {ny};
-        nz {nz};
+        nx {dx};
+        ny {dy};
+        nz {dz};
 
         vertices
         (
