@@ -1,2 +1,2 @@
 # porePermFoam
-A simple tool to compute permeability of porous media using OpenFOAM
+A simple tool to compute the permeability of a porous media using OpenFOAM.
