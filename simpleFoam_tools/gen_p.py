@@ -1,7 +1,7 @@
 import os
 from textwrap import dedent
 
-def generate_pressure_field(file_path: str, boundary: str = "symmetryPlane") -> None:
+def generate_pressure_field(file_path: str, dp: float = 1e-3, boundary: str = "symmetryPlane") -> None:
     """Generate a 'p' initial condition file with specified boundary conditions."""
     # Map user-friendly boundary name to OpenFOAM type
     if boundary.lower() == "symmetryplane":
@@ -41,7 +41,7 @@ def generate_pressure_field(file_path: str, boundary: str = "symmetryPlane") -> 
             inlet
             {{
                 type            fixedValue;
-                value           uniform 1e-3;
+                value           uniform {dp};
             }}
             bottom
             {{

@@ -23,16 +23,16 @@ boundaryField
 {
     top
     {
-        type            symmetryPlane;
+        type            zeroGradient;
     }
     inlet
     {
         type            fixedValue;
-        value           uniform 1e-3;
+        value           uniform 0.001;
     }
     bottom
     {
-        type            symmetryPlane;
+        type            zeroGradient;
     }
     outlet
     {
@@ -45,10 +45,10 @@ boundaryField
     }
     front
     {
-        type            symmetryPlane;
+        type            zeroGradient;
     }
     back
     {
-        type            symmetryPlane;
+        type            zeroGradient;
     }
 }
