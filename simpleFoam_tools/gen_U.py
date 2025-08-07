@@ -67,12 +67,3 @@ def generate_velocity_field(file_path: str, boundary: str = "symmetryPlane") -> 
     with open(file_path, 'w') as f:
         f.write(U_dict)
     print(f"Generated U at: {file_path} with boundary {bc_type}")
-
-
-if __name__ == "__main__":
-    import os
-    basedir = os.path.dirname(os.path.abspath(__file__))
-
-    # Velocity field example
-    velocity_target = os.path.normpath(os.path.join(basedir, "../0/U"))
-    generate_velocity_field(velocity_target, boundary="wall")

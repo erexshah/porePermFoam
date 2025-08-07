@@ -1,9 +1,7 @@
-#!/usr/bin/env python3
 import subprocess
 import re
 import csv
 import sys
-import os
 
 def _run(cmd, cwd=None):
     """Run a shell command, streaming its output to stdout/stderr and return combined output."""
@@ -56,36 +54,26 @@ def _write_csv(filename, data, area):
     print(f"Wrote {len(data)} records with area={area:g} to {filename}")
 
 def run_simplefoam(basedir, scale: float = 1e-6):
-    # 1. Mesh generation
     _run("blockMesh", cwd=basedir)
     _run("snappyHexMesh -overwrite", cwd=basedir)
     _run(f'transformPoints -scale "({scale} {scale} {scale})"', cwd=basedir)
 
-    # 2. Solver
     _run("simpleFoam", cwd=basedir)
 
-    # 3. postProcess (all times)
     out_in  = _run("postProcess -func 'flowRatePatch(name=inlet)'",  cwd=basedir)
     out_out = _run("postProcess -func 'flowRatePatch(name=outlet)'", cwd=basedir)
 
-    # 4. Extract data and area
     inlet_data   = _extract_flow_rates(out_in,  'inlet')
     outlet_data  = _extract_flow_rates(out_out, 'outlet')
     area_inlet   = _extract_patch_area_from_flow(out_in,  'inlet')
     area_outlet  = _extract_patch_area_from_flow(out_out, 'outlet')
 
-    # 5. Save CSVs with area
     _write_csv("q_in.csv",  inlet_data,  area_inlet)
     _write_csv("q_out.csv", outlet_data, area_outlet)
 
-    # 6. Summary
     print("\n--- inlet fluxes ---")
     for t, q in inlet_data:
         print(f"t={t:<10g}, q_in={q:.5e}, A_in={area_inlet:g}")
     print("\n--- outlet fluxes ---")
     for t, q in outlet_data:
         print(f"t={t:<10g}, q_out={q:.5e}, A_out={area_outlet:g}")
-
-if __name__ == '__main__':
-    basedir = os.path.dirname(os.path.abspath(__file__))
-    run_simplefoam(basedir=os.path.join(basedir, ".."), scale=1e-6)

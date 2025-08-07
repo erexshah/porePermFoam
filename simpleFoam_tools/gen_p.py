@@ -3,7 +3,6 @@ from textwrap import dedent
 
 def generate_pressure_field(file_path: str, dp: float = 1e-3, boundary: str = "symmetryPlane") -> None:
     """Generate a 'p' initial condition file with specified boundary conditions."""
-    # Map user-friendly boundary name to OpenFOAM type
     if boundary.lower() == "symmetryplane":
         bc_type = "symmetryPlane"
     elif boundary.lower() == "wall":
@@ -71,12 +70,3 @@ def generate_pressure_field(file_path: str, dp: float = 1e-3, boundary: str = "s
     with open(file_path, 'w') as f:
         f.write(p_dict)
     print(f"Generated p at: {file_path} with boundary {bc_type}")
-
-
-if __name__ == "__main__":
-    import os
-    basedir = os.path.dirname(os.path.abspath(__file__))
-
-    # Pressure field example
-    pressure_target = os.path.normpath(os.path.join(basedir, "../0/p"))
-    generate_pressure_field(pressure_target, boundary="wall")

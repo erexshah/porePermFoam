@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import os
 from textwrap import dedent
 
@@ -124,20 +123,8 @@ def generate_blockMeshDict(shape: tuple, mesh_resolution: tuple, file_path: str,
         );
     """)
 
-    # Ensure the output directory exists
     os.makedirs(os.path.dirname(file_path), exist_ok=True)
 
     with open(file_path, 'w') as f:
         f.write(blockMeshDict)
     print(f"Generated blockMeshDict at: {file_path}")
-
-
-if __name__ == "__main__":
-    basedir = os.path.dirname(os.path.abspath(__file__))
-    shape = (100, 50, 50)  # Example shape
-
-    # Resolve the target path inside the system directory:
-    system_dir   = os.path.join(basedir, "..", "system")
-    file_path    = os.path.normpath(os.path.join(system_dir, "blockMeshDict"))
-
-    generate_blockMeshDict(shape, file_path, boundary="wall")

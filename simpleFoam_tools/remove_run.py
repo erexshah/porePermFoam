@@ -17,10 +17,3 @@ def remove_run_files(basedir):
     postProc_path = os.path.join(basedir, "postProcessing")
     if os.path.exists(postProc_path):
         shutil.rmtree(postProc_path)
-        
-if __name__ == "__main__":
-    import os
-    basedir = os.path.dirname(os.path.abspath(__file__))
-    basedir = os.path.normpath(os.path.join(basedir, ".."))
-    remove_run_files(basedir)
-    

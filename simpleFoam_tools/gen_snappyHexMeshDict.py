@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import os
 from textwrap import dedent
 
@@ -6,7 +5,6 @@ def generate_snappyHexMeshDict(location_in_mesh: tuple, stl_file: str, file_path
     """Generate snappyHexMeshDict for a given STL geometry and mesh location."""
     x, y, z = location_in_mesh
 
-    # Use doubled braces to escape f-string literal braces
     snappy_dict = dedent(rf"""
         /*--------------------------------*- C++ -*----------------------------------*\\
           =========                 |
@@ -121,17 +119,7 @@ def generate_snappyHexMeshDict(location_in_mesh: tuple, stl_file: str, file_path
         mergeTolerance 1e-6;
     """)
 
-    # Ensure output directory exists
     os.makedirs(os.path.dirname(file_path), exist_ok=True)
-
     with open(file_path, 'w') as f:
         f.write(snappy_dict)
     print(f"Generated snappyHexMeshDict at: {file_path}")
-
-if __name__ == "__main__":
-    basedir = os.path.dirname(os.path.abspath(__file__))
-    # Example usage:
-    location = (25, 25, 25)
-    stl = "cylinder.stl"
-    target = os.path.normpath(os.path.join(basedir, "../system/snappyHexMeshDict"))
-    generate_snappyHexMeshDict(location, stl, target)

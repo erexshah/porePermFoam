@@ -22,13 +22,29 @@ internalField   uniform 0;
 
 boundaryField
 {
+    top
+    {
+        type            symmetryPlane;
+    }
     inlet
     {
         type            zeroGradient;
     }
+    bottom
+    {
+        type            symmetryPlane;
+    }
     outlet
     {
         type            zeroGradient;
+    }
+    front
+    {
+        type            symmetryPlane;
+    }
+    back
+    {
+        type            symmetryPlane;
     }
     solids
     {

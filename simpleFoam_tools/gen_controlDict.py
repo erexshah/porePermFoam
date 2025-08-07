@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import os
 from textwrap import dedent
 
@@ -51,16 +50,8 @@ def generate_controlDict(file_path: str, end_time: int = 500, write_interval: in
         runTimeModifiable true;
     """)
 
-    # Ensure the output directory exists
     os.makedirs(os.path.dirname(file_path), exist_ok=True)
 
     with open(file_path, 'w') as f:
         f.write(controlDict)
     print(f"Generated controlDict at: {file_path}")
-
-
-if __name__ == "__main__":
-    basedir = os.path.dirname(os.path.abspath(__file__))
-    file_path = os.path.normpath(os.path.join(basedir, "../system/controlDict"))
-
-    generate_controlDict(file_path, end_time=300, write_interval=50)
