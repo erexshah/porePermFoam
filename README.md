@@ -7,7 +7,7 @@
 
 ## **Overview**  
 **porePermFoam** provides a streamlined workflow to estimate the permeability of porous media using **OpenFOAM** for CFD simulations and **ParaView** for post-processing.  
-It is designed for researchers and engineers who need a quick, reproducible, and automated way to run permeability simulations from image-based geometries or generated meshes.
+It is designed for researchers and engineers who need a quick, reproducible, and automated way to run permeability simulations from image-based geometries.
 
 ---
 
@@ -24,7 +24,7 @@ It is designed for researchers and engineers who need a quick, reproducible, and
 
 ### **Prerequisites**  
 - **OpenFOAM** (tested with OpenFOAM v7+ and v2412)  
-- **ParaView** (for mesh visualization and STL generation)  
+- **ParaView** (for mesh visualisation and STL generation)  
 - **Python 3.8+**  
 
 ### **Setup Steps**  
@@ -50,23 +50,27 @@ pip install -r requirements.txt
 ## **Usage**  
 1. Open the **`run_porePermFoam.ipynb`** notebook in Jupyter Lab or Jupyter Notebook.  
 2. Follow the step-by-step instructions inside to:  
-   - Import your porous media geometry  
+   - Import your porous media geometry in vti format and convert to stl
    - Configure simulation parameters  
-   - Run OpenFOAM simulations  
+   - Run incompressible single-phase OpenFOAM simulations  
    - Post-process results  
-3. View and analyze simulation outputs in ParaView or directly from the notebook.  
+3. View and analyse simulation outputs in ParaView or directly from the notebook.  
 
 ---
 
-## **Repository Structure**  
-~~~text
+## **Repository structure**
+
+```text
 porePermFoam/
 │
-├── run_porePermFoam.ipynb    # Main simulation workflow
+├── 0/                        # OpenFOAM initial-condition directory (field files)
+├── constant/                 # Geometry, mesh and material/property files for OpenFOAM
+├── system/                   # OpenFOAM system files (controlDict, fvSchemes, fvSolution)
+├── simpleFoam-tools/         # Python utilities to automate simulation setup & runs
+├── run_porePermFoam.ipynb    # Main Jupyter workflow for preprocessing, running and postprocessing
 ├── requirements.txt          # Python dependencies
-├── resources/                # Images & logos
+├── resources/                # Images, logos and example inputs
 └── README.md                 # Project documentation
-~~~
 
 ---
 
