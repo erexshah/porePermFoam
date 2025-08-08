@@ -71,6 +71,7 @@ porePermFoam/
 ├── requirements.txt          # Python dependencies
 ├── resources/                # Images, logos and example inputs
 └── README.md                 # Project documentation
+```
 
 ---
 
