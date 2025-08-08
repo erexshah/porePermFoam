@@ -64,7 +64,7 @@ pip install -r requirements.txt
 4. **Post-process**  
    Use the Python utilities in `simpleFoam-tools/` to compute porosity and permeability from outputs, or inspect results with ParaView.
 
-> **Note:** Following the HTML tutorial (`resources/tutorial.html`) for the canonical, step-by-step instructions.
+> **Note:** Following the HTML tutorial (`resources/tutorial.ipynb`) for the canonical, step-by-step instructions.
 
 ---
 
@@ -116,9 +116,6 @@ You are free to use, modify, and distribute this software with attribution.
 
 ## 📖 Tutorial  
 
-<iframe src="resources/tutorial.html" width="100%" height="600px" style="border:none;">
-Your browser does not support iframes.  
-<a href="resources/tutorial.html">Click here to view the tutorial.</a>
-</iframe>
+<a href="resources/tutorial.ipynb">Click here to view the tutorial.</a>
 
 ---
