@@ -1,6 +1,8 @@
 # **porePermFoam**  
 *A lightweight tool for computing permeability of porous media using OpenFOAM.*  
 
+> **From micro-CT to permeability in minutes — `porePermFoam` automates voxel-to-OpenFOAM workflows, making pore-scale CFD simulations fast, reproducible, and accessible.**
+
 ![Permeability Simulation](resources/img1.png)  
 
 ---
@@ -12,11 +14,11 @@ It is designed for researchers and engineers who need a quick, reproducible, and
 ---
 
 ## **Features**  
-- 🔹 Easy-to-run Jupyter notebook interface  
+- 🔹 Easy-to-run workflow with automated preprocessing and simulation setup  
 - 🔹 Uses **OpenFOAM** for accurate permeability calculations  
-- 🔹 Automated preprocessing and simulation setup  
-- 🔹 Works with 3D image-based porous structures  
-- 🔹 Open-source and extensible  
+- 🔹 Works with 3D image-based porous structures (VTI → STL → mesh)  
+- 🔹 Fully open-source and extensible  
+- 🔹 Minimal manual intervention required — suitable for batch processing and reproducible research
 
 ---
 
@@ -28,7 +30,7 @@ It is designed for researchers and engineers who need a quick, reproducible, and
 - **Python 3.8+**  
 
 ### **Setup Steps**  
-~~~bash
+```bash
 # 1. Install OpenFOAM and ParaView
 #    (Refer to your OS-specific installation instructions)
 
@@ -43,18 +45,36 @@ source .venv/bin/activate   # Linux/macOS
 
 # 4. Install required Python packages
 pip install -r requirements.txt
-~~~
+```
 
 ---
 
-## **Usage**  
-1. Open the **`run_porePermFoam.ipynb`** notebook in Jupyter Lab or Jupyter Notebook.  
-2. Follow the step-by-step instructions inside to:  
-   - Import your porous media geometry in vti format and convert to stl
-   - Configure simulation parameters  
-   - Run incompressible single-phase OpenFOAM simulations  
-   - Post-process results  
-3. View and analyse simulation outputs in ParaView or directly from the notebook.  
+## **Usage**
+
+### Quick start (recommended)
+1. **Prepare geometry**  
+   Put your porous-media `.vti` file(s)` (grain voxels = `0`, pore voxels = `1` or `255`) into `constant/geometry/`.
+
+2. **Open the repository**  
+   Open this repository in **JupyterLab** / **Jupyter Notebook** (optional) or follow the HTML tutorial at the end of this README (`resources/tutorial.html`).
+
+3. **Run the automated workflow**  
+   The workflow will convert `.vti` → `.stl`, automatically generate OpenFOAM dictionaries (`system/` & `0/`), run meshing and the solver, and write CSV post-processing files (e.g., `q_in.csv`).
+
+4. **Post-process**  
+   Use the Python utilities in `simpleFoam-tools/` to compute porosity and permeability from outputs, or inspect results with ParaView.
+
+> **Note:** Following the HTML tutorial (`resources/tutorial.html`) for the canonical, step-by-step instructions.
+
+---
+
+### Example workflow summary
+- Convert VTI to STL: vti_to_stl(vti_path, stl_path)
+- Generate meshes and dictionaries: generate_blockMeshDict, generate_snappyHexMeshDict, generate_controlDict, generate_pressure_field, generate_velocity_field
+- Run OpenFOAM case from Python: run_simplefoam(".", scale=scale)
+- Post-process and compute:
+   - Porosity: vti_phi(vti_path)
+   - Permeability via Darcy's law from q_in.csv
 
 ---
 
@@ -91,3 +111,14 @@ porePermFoam/
 ## **License**  
 This project is released under the **MIT License**.  
 You are free to use, modify, and distribute this software with attribution.
+
+---
+
+## 📖 Tutorial  
+
+<iframe src="resources/tutorial.html" width="100%" height="600px" style="border:none;">
+Your browser does not support iframes.  
+<a href="resources/tutorial.html">Click here to view the tutorial.</a>
+</iframe>
+
+---

@@ -40,7 +40,7 @@ def generate_pressure_field(file_path: str, dp: float = 1e-3, boundary: str = "s
             inlet
             {{
                 type            fixedValue;
-                value           uniform {dp};
+                value           uniform {dp*1e-3};
             }}
             bottom
             {{

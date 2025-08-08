@@ -1,7 +1,7 @@
 import os
 from textwrap import dedent
 
-def generate_controlDict(file_path: str, end_time: int = 500, write_interval: int = 100) -> None:
+def generate_controlDict(file_path: str, end_time: int = 500, write_interval: int = 100, dt: float = 1.0e-6) -> None:
     """Generate controlDict for a given simulation."""
     controlDict = dedent(rf"""
         /*--------------------------------*- C++ -*----------------------------------*\\
@@ -29,7 +29,7 @@ def generate_controlDict(file_path: str, end_time: int = 500, write_interval: in
 
         endTime         {end_time};
 
-        deltaT         1;
+        deltaT         {dt};
 
         writeControl    timeStep;
 

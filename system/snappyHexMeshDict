@@ -45,7 +45,7 @@ castellatedMeshControls
     }
     resolveFeatureAngle  30;
     refinementRegions    {}
-    locationInMesh       (50 70 20);
+    locationInMesh       (51 50 50);
     allowFreeStandingZoneFaces false;
 }
 
