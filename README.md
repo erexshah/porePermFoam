@@ -16,5 +16,7 @@ pip install -r requirements.txt
 1. Open the `run_porePermFoam.ipynb` Jupyter notebook.
 2. Follow the instructions in the notebook to set up and run the simulation.
 ## Contact
+![img](resources/UoM_logo.jpg) | ![img](resources/IMPRES_logo.jpeg)
+Developer: Arash Pourakaberian; PI: Prof. Dr Vahid Niasar; The University of Manchester
 For any questions or issues, please contact the author:
 - **Email**: arash.pourakaberian@postgrad.manchester.ac.uk
