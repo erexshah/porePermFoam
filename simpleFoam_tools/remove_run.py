@@ -17,3 +17,5 @@ def remove_run_files(basedir):
     postProc_path = os.path.join(basedir, "postProcessing")
     if os.path.exists(postProc_path):
         shutil.rmtree(postProc_path)
+    os.remove(os.path.join(basedir, "q_in.csv")) if os.path.exists(os.path.join(basedir, "q_in.csv")) else None
+    os.remove(os.path.join(basedir, "q_out.csv")) if os.path.exists(os.path.join(basedir, "q_out.csv")) else None

@@ -97,7 +97,7 @@ porePermFoam/
 
 ## **Contact**  
 **Developer:** Arash Pourakaberian  
-**Principal Investigator:** Prof. Dr. Vahid Niasar  
+**Principal Investigator:** Prof. Dr Vahid Niasar  
 **Institution:** The University of Manchester  
 
 📧 Email: **arash.pourakaberian@postgrad.manchester.ac.uk**  
