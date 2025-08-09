@@ -30,7 +30,7 @@ def generate_blockMeshDict(shape: tuple, mesh_resolution: tuple, file_path: str,
 
         // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-        convertToMeters 1;
+        scale 1;
 
         lx0 0;
         ly0 0;
