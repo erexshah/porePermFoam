@@ -1,0 +1,10 @@
+# Region type : patch inlet
+# Faces       : 144
+# Area        : 1.411344e-10
+# Scale factor: 1.000000e+00
+# Time        	sum(phi)
+0             
+5e-05         	-7.254478e-15
+0.0001        	-7.258134e-15
+0.00015       	-7.258216e-15
+0.0002        	-7.258219e-15

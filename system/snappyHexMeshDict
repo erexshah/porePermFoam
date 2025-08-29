@@ -21,7 +21,7 @@ addLayers       false;
 
 geometry
 {
-    vti_bent_x.stl
+    channel1.stl
     {
         type triSurfaceMesh;
         name solids;
@@ -45,7 +45,7 @@ castellatedMeshControls
     }
     resolveFeatureAngle  30;
     refinementRegions    {}
-    locationInMesh       (51 50 50);
+    locationInMesh       (50 50 50);
     allowFreeStandingZoneFaces false;
 }
 
