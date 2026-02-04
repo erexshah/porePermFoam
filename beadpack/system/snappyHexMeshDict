@@ -40,7 +40,7 @@ castellatedMeshControls
     {
         solids
         {
-            level (0 0);
+            level (3 3);
         }
     }
     resolveFeatureAngle  30;

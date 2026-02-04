@@ -68,8 +68,8 @@ def run_simplefoam(basedir, scale: float = 1e-6):
     area_inlet   = _extract_patch_area_from_flow(out_in,  'inlet')
     area_outlet  = _extract_patch_area_from_flow(out_out, 'outlet')
 
-    _write_csv("q_in.csv",  inlet_data,  area_inlet)
-    _write_csv("q_out.csv", outlet_data, area_outlet)
+    _write_csv(f"{basedir}/q_in.csv",  inlet_data,  area_inlet)
+    _write_csv(f"{basedir}/q_out.csv", outlet_data, area_outlet)
 
     print("\n--- inlet fluxes ---")
     for t, q in inlet_data:

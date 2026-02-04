@@ -1,3 +1,6 @@
 
 /venv
 *.stl
+/estaillades/constant/polyMesh
+/gildehauser/constant/polyMesh
+/portland/constant/polyMesh
