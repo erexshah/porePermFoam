@@ -22,13 +22,13 @@ lx0 0;
 ly0 0;
 lz0 0;
 
-lx1 99;
-ly1 99;
-lz1 99;
+lx1 249;
+ly1 249;
+lz1 249;
 
-nx 50;
-ny 400;
-nz 400;
+nx 125;
+ny 1000;
+nz 1000;
 
 vertices
 (
@@ -55,7 +55,7 @@ boundary
 (
     top
     {
-        type Wall;
+        type symmetryPlane;
         faces
         (
             (7 6 3 2)
@@ -73,7 +73,7 @@ boundary
 
     bottom
     {
-        type Wall;
+        type symmetryPlane;
         faces
         (
             (1 5 4 0)
@@ -91,7 +91,7 @@ boundary
 
     front
     {
-        type Wall;
+        type symmetryPlane;
         faces
         (
             (0 3 2 1)
@@ -100,7 +100,7 @@ boundary
 
     back
     {
-        type Wall;
+        type symmetryPlane;
         faces
         (
             (4 5 6 7)

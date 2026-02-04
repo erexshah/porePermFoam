@@ -21,7 +21,7 @@ addLayers       false;
 
 geometry
 {
-    channel1.stl
+    beadpack_z.stl
     {
         type triSurfaceMesh;
         name solids;
@@ -45,7 +45,7 @@ castellatedMeshControls
     }
     resolveFeatureAngle  30;
     refinementRegions    {}
-    locationInMesh       (50 50 50);
+    locationInMesh       (134 123 131);
     allowFreeStandingZoneFaces false;
 }
 

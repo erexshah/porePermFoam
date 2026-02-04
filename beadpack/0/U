@@ -23,7 +23,7 @@ boundaryField
 {
     top
     {
-        type            noSlip;
+        type            symmetryPlane;
     }
     inlet
     {
@@ -31,7 +31,7 @@ boundaryField
     }
     bottom
     {
-        type            noSlip;
+        type            symmetryPlane;
     }
     outlet
     {
@@ -43,10 +43,10 @@ boundaryField
     }
     front
     {
-        type            noSlip;
+        type            symmetryPlane;
     }
     back
     {
-        type            noSlip;
+        type            symmetryPlane;
     }
 }
